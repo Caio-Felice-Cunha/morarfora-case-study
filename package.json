@@ -1,0 +1,17 @@
+{
+  "name": "morarfora-case-study",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "http-server site -p 4175 -c-1",
+    "test": "node --test tests/content.test.mjs",
+    "test:e2e": "playwright test",
+    "test:links": "node scripts/check-live-links.mjs",
+    "test:all": "npm test && npm run test:e2e && npm run test:links"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "http-server": "^14.1.1"
+  }
+}
