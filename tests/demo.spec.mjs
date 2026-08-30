@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
 
 test('guided path can be completed with the keyboard-visible controls', async ({ page }) => {
   const external = [];
@@ -33,4 +34,15 @@ test.describe('mobile and reduced motion', () => {
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     expect(overflow).toBeLessThanOrEqual(1);
   });
+});
+
+test('WCAG AA audit passes', async ({ page }) => {
+  await page.goto('/');
+  const { violations } = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
+  const summary = violations.map(({ id, impact, nodes }) => ({
+    id,
+    impact,
+    targets: nodes.map((node) => node.target.join(' ')),
+  }));
+  expect(summary).toEqual([]);
 });

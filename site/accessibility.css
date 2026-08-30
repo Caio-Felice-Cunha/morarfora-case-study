@@ -1,0 +1,9 @@
+/* Accessible contrast overrides for the editorial palette. */
+:root {
+  --muted: #536159;
+  --rust: #9e361f;
+}
+
+.stamp {
+  opacity: 1;
+}
