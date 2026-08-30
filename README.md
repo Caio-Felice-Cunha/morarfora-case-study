@@ -4,7 +4,7 @@
 
 **A guided public case study for two live, zero-login planning tools built inside a private content product.**
 
-[Try the live tools](https://caio-felice-cunha.github.io/morarfora-case-study/) · [Read the case study](#case-study) · [Run this guide locally](#run-locally)
+[Try the demo](https://caio-felice-cunha.github.io/morarfora-case-study/) · [Engineering case](https://caio-felice-cunha.github.io/morarfora-case-study/#case) · [View source](https://github.com/Caio-Felice-Cunha/morarfora-case-study) · [Run locally](#run-locally)
 
 ## What you can test
 
@@ -21,6 +21,35 @@ MorarFora turns high-anxiety research into smaller decisions. The product
 combines editorial guidance with tools that expose inputs, preserve context,
 and make trade-offs visible. This repository is the public inspection layer:
 it gives visitors a test script and links them to the real product.
+
+## Product architecture
+
+The private product uses Astro to render editorial and reference content
+statically. Small client-side islands own only the interactive calculator and
+comparison state, keeping the majority of each route usable without a large
+application bundle.
+
+### CRS flow
+
+Versioned scoring tables map age, education, language, work history, spouse,
+and transferability inputs into subtotals and a transparent final score. The
+case page documents this private implementation as labelled pseudocode and
+describes how source dates and update checks are recorded.
+
+### City-comparison flow
+
+Versioned city facts are normalized into comparable dimensions. The interface
+keeps the original values visible while helping the user inspect trade-offs; it
+does not collapse a personal decision into an unexplained universal ranking.
+
+## Quality and data provenance
+
+- Content tests permit only the two approved public product routes.
+- Browser tests cover the guided flows, technical narrative, keyboard-visible
+  controls, and responsive layout.
+- Link checks verify both live routes independently from the static case.
+- Source updates require a citation, effective date, transformation note, and
+  review of affected calculator or comparison tests.
 
 ## Run locally
 
