@@ -1,0 +1,25 @@
+schema: 1
+story: '1.2'
+gate: PASS
+status_reason: >-
+  Both real product journeys remain accessible, the engineering case documents the
+  Astro and versioned-data boundaries without exposing private source, and all local
+  and GitHub Actions content, browser, accessibility, link, and no-network checks pass.
+reviewer: 'Quinn'
+reviewed_revision: 'commit:5518af53a60019738cafe03aea6525ee26ad0c3b'
+updated: '2026-08-30T18:00:00-07:00'
+top_issues: []
+waiver:
+  active: false
+evidence:
+  tests:
+    content: '2 passed'
+    playwright: '3 passed'
+    live_links: '2 passed'
+  quality:
+    wcag_aa: passed
+    unexpected_external_requests: none
+    console_errors: none
+  review_note: >-
+    CodeRabbit CLI authentication was unavailable; manual evidence-based review found
+    no release-blocking issue.
